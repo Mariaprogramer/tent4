@@ -1,0 +1,43 @@
+// Abrir e fechar o modal
+function closeModal() {
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+function openModal() {
+    document.getElementById('loginModal').style.display = 'block';
+}
+
+// Simular botão de curso (substituir depois por redirecionamento real)
+function acessarCurso(curso) {
+    alert(`Você acessou o curso de ${curso.toUpperCase()}! Em breve será redirecionado.`);
+}
+
+// Chat simulando pergunta
+function enviarPergunta() {
+    const pergunta = document.getElementById("pergunta").value;
+    const respostaDiv = document.getElementById("resposta");
+    if (pergunta.trim() === '') return;
+
+    respostaDiv.innerHTML = `<p><strong>Você:</strong> ${pergunta}</p>` +
+        `<p><strong>ChatGPT:</strong> Estou aqui para te ajudar! 😊 Essa função será ativada em breve!</p>`;
+
+    document.getElementById("pergunta").value = '';
+}
+
+// Login com Firebase
+window.onload = () => {
+    const form = document.getElementById("loginForm");
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = form.email.value;
+        const password = form.password.value;
+
+        try {
+            await firebase.auth().signInWithEmailAndPassword(email, password);
+            alert("Login bem-sucedido!");
+            closeModal();
+        } catch (error) {
+            alert("Erro ao fazer login: " + error.message);
+        }
+    });
+};
