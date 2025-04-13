@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airplane - voar alto juntos 2k25</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script defer src="firebase.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Airplane - Voar Alto Juntos 2k25</h1>
+        </div>
+    </header>
+
+    <!-- Modal Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <section id="cursinhos">
+            <h2>Cursinhos Intensivos</h2>
+            <div class="cursinho">
+                <h3>SAT - 6 Meses</h3>
+                <p>Plano de estudos completo para o SAT com alta dificuldade.</p>
+                <button onclick="acessarCurso('sat')">Acessar Curso</button>
+            </div>
+
+            <div class="cursinho">
+                <h3>TOEFL - 6 Meses</h3>
+                <p>Plano de estudos intensivo para o TOEFL.</p>
+                <button onclick="acessarCurso('toefl')">Acessar Curso</button>
+            </div>
+
+            <div class="cursinho">
+                <h3>OBMEP - 6 Meses</h3>
+                <p>Plano para a OBMEP com dificuldade avançada.</p>
+                <button onclick="acessarCurso('obmep')">Acessar Curso</button>
+            </div>
+
+            <div class="cursinho">
+                <h3>OBA - 6 Meses</h3>
+                <p>Curso completo para astronomia na OBA.</p>
+                <button onclick="acessarCurso('oba')">Acessar Curso</button>
+            </div>
+
+            <div class="cursinho">
+                <h3>ONC - 6 Meses</h3>
+                <p>Plano de estudos para a Olimpíada Nacional de Ciências.</p>
+                <button onclick="acessarCurso('onc')">Acessar Curso</button>
+            </div>
+        </section>
+
+        <section id="chatgpt">
+            <h2>Pergunte algo!</h2>
+            <div class="chat-box">
+                <textarea id="pergunta" placeholder="Digite sua dúvida..."></textarea>
+                <button onclick="enviarPergunta()">Enviar</button>
+                <div id="resposta"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Airplane - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
